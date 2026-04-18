@@ -14,6 +14,8 @@
     "cf:dev": "astro build && wrangler dev"
   },
   "dependencies": {
+    "@fontsource-variable/geist": "^5.2.8",
+    "@fontsource-variable/geist-mono": "^5.2.7",
     "astro": "^6.1.7"
   },
   "devDependencies": {

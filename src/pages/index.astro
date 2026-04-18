@@ -1,4 +1,6 @@
 ---
+import "@fontsource-variable/geist";
+import "@fontsource-variable/geist-mono";
 import { brand, hero, features, repos, footer } from "../content/site";
 
 const title = `${brand.name} — ${brand.tagline}`;
@@ -108,7 +110,7 @@ const title = `${brand.name} — ${brand.tagline}`;
       body {
         background: var(--bg);
         color: var(--fg);
-        font-family: "Geist", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+        font-family: "Geist Variable", "Geist", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
         font-feature-settings: "ss01", "cv11";
         line-height: 1.55;
         -webkit-font-smoothing: antialiased;
@@ -162,7 +164,7 @@ const title = `${brand.name} — ${brand.tagline}`;
       }
       .eyebrow {
         margin: 0 0 18px;
-        font-family: "Geist Mono", ui-monospace, Menlo, monospace;
+        font-family: "Geist Mono Variable", "Geist Mono", ui-monospace, Menlo, monospace;
         font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
         color: var(--accent);
       }
@@ -238,7 +240,7 @@ const title = `${brand.name} — ${brand.tagline}`;
         margin-bottom: 6px;
       }
       .repo-name {
-        font-family: "Geist Mono", ui-monospace, Menlo, monospace;
+        font-family: "Geist Mono Variable", "Geist Mono", ui-monospace, Menlo, monospace;
         font-size: 14px; font-weight: 500;
       }
       .repo-arrow { margin-left: auto; color: var(--muted); font-size: 16px; }
