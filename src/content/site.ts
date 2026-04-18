@@ -18,8 +18,34 @@ export const repos = {
   core: {
     label: "beatly",
     href: "https://github.com/getbeatly/beatly",
-    description: "Core library and agent skills. Coming soon.",
+    description: "Core library, agent skill, and Codex / Claude Code plugins.",
   },
+} as const;
+
+export const installs = [
+  {
+    id: "pi",
+    label: "pi",
+    command: "pi install npm:@beatly/core",
+    hint: "then /skill:beatly",
+  },
+  {
+    id: "codex",
+    label: "Codex",
+    command: "npm run build:codex-plugin",
+    hint: "load from .build/distributions/codex/beatly",
+  },
+  {
+    id: "claude",
+    label: "Claude Code",
+    command: "npm run build:claude-code",
+    hint: "symlink into ~/.claude/skills/beatly",
+  },
+] as const;
+
+export const requirement = {
+  title: "requires SuperCollider",
+  body: "Beatly runs a local SuperCollider server. Install SuperCollider system-wide so scsynth and sclang are on your PATH before using any install target.",
 } as const;
 
 export const hero = {

@@ -1,7 +1,7 @@
 ---
 import "@fontsource-variable/geist";
 import "@fontsource-variable/geist-mono";
-import { brand, hero, repos } from "../content/site";
+import { brand, hero, repos, installs, requirement } from "../content/site";
 
 const title = `${brand.name} — ${brand.tagline}`;
 ---
@@ -52,10 +52,15 @@ const title = `${brand.name} — ${brand.tagline}`;
           </section>
 
           <section class="install" aria-label="install">
-            <p class="muted">install library</p>
-            <pre><code>npm i @beatly/core</code></pre>
-            <p class="muted">build codex plugin</p>
-            <pre><code>npm run build:codex-plugin</code></pre>
+            <p class="muted">install for your agent</p>
+            {installs.map((item) => (
+              <div class="install-row">
+                <p class="install-label">{item.label}</p>
+                <pre><code>{item.command}</code></pre>
+                <p class="install-hint">{item.hint}</p>
+              </div>
+            ))}
+            <p class="install-note"><strong>{requirement.title}.</strong> {requirement.body}</p>
           </section>
 
           <section class="repo-links" aria-label="github links">
@@ -266,17 +271,54 @@ const title = `${brand.name} — ${brand.tagline}`;
       }
 
       .install {
-        text-align: center;
-        padding: 26px 20px;
+        text-align: left;
+        padding: 22px 20px;
       }
 
       .install pre,
       .install code {
-        text-align: center;
+        text-align: left;
       }
 
       .install pre {
         width: 100%;
+        margin: 6px 0 4px;
+      }
+
+      .install-row + .install-row {
+        margin-top: 14px;
+      }
+
+      .install-label {
+        margin: 0 0 2px;
+        font-family: "Geist Mono Variable", "Geist Mono", ui-monospace, Menlo, monospace;
+        font-size: 12px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--accent);
+        font-weight: 700;
+      }
+
+      .install-hint {
+        margin: 2px 0 0;
+        color: var(--muted);
+        font-size: 12px;
+        font-family: "Geist Mono Variable", "Geist Mono", ui-monospace, Menlo, monospace;
+      }
+
+      .install-note {
+        margin: 16px 0 0;
+        padding: 10px 12px;
+        border-radius: 10px;
+        border: 1px solid var(--border);
+        background: rgba(255, 46, 136, 0.08);
+        color: var(--muted);
+        font-size: 12.5px;
+        line-height: 1.5;
+      }
+
+      .install-note strong {
+        color: var(--fg);
       }
 
       .demo {
