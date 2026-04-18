@@ -27,10 +27,6 @@ export const hero = {
   headline: "a live music soundtrack",
   headlineAccent: "for coding agents",
   sub: "Beatly listens to your agent's tool calls, diffs, and test runs — and scores them. In real time. From a dusty lo-fi while it reads, to a build-up while it writes, to a payoff chord when CI goes green.",
-  cta: {
-    label: "get early access",
-    href: "#waitlist",
-  },
 } as const;
 
 export const features = [
@@ -47,14 +43,6 @@ export const features = [
     body: "Pick a mood — lo-fi, synthwave, orchestral, drum & bass. Beatly keeps you in the zone you chose.",
   },
 ] as const;
-
-export const waitlist = {
-  heading: "ship with a soundtrack",
-  sub: "Early access is rolling out in waves. Drop your email — we'll ping you when it's your turn.",
-  placeholder: "you@studio.fm",
-  button: "join the waitlist",
-  success: "✓ you're on the list.",
-} as const;
 
 export const footer = {
   note: "open source · made with loops and tool calls.",
