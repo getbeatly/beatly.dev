@@ -1,7 +1,7 @@
 ---
 import "@fontsource-variable/geist";
 import "@fontsource-variable/geist-mono";
-import { brand, hero, repos, footer } from "../content/site";
+import { brand, hero, repos } from "../content/site";
 
 const title = `${brand.name} — ${brand.tagline}`;
 ---
@@ -27,10 +27,6 @@ const title = `${brand.name} — ${brand.tagline}`;
     )}
   </head>
   <body>
-    <header class="nav">
-      <a href={repos.website.href} class="nav-link" target="_blank" rel="noopener">github ↗</a>
-    </header>
-
     <main>
       <div class="top-grid">
         <section class="hero">
@@ -61,14 +57,23 @@ const title = `${brand.name} — ${brand.tagline}`;
             <p class="muted">install skill</p>
             <pre><code>npx @beatly/skill install</code></pre>
           </section>
+
+          <section class="repo-links" aria-label="github links">
+            <a href={repos.website.href} target="_blank" rel="noopener" class="repo-link-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 .5C5.73.5.5 5.73.5 12a11.5 11.5 0 007.86 10.92c.57.1.78-.25.78-.55v-1.93c-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.04-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.3 1.2-3.1-.12-.3-.52-1.48.1-3.1 0 0 .97-.31 3.18 1.18a11 11 0 015.8 0c2.2-1.5 3.17-1.18 3.17-1.18.63 1.62.23 2.8.12 3.1.74.8 1.2 1.84 1.2 3.1 0 4.43-2.7 5.4-5.27 5.69.4.36.77 1.07.77 2.16v3.2c0 .3.2.66.79.55A11.5 11.5 0 0023.5 12C23.5 5.73 18.27.5 12 .5z"/>
+              </svg>
+              <span>getbeatly/beatly.dev</span>
+            </a>
+            <a href={repos.core.href} target="_blank" rel="noopener" class="repo-link-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 .5C5.73.5.5 5.73.5 12a11.5 11.5 0 007.86 10.92c.57.1.78-.25.78-.55v-1.93c-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.04-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.3 1.2-3.1-.12-.3-.52-1.48.1-3.1 0 0 .97-.31 3.18 1.18a11 11 0 015.8 0c2.2-1.5 3.17-1.18 3.17-1.18.63 1.62.23 2.8.12 3.1.74.8 1.2 1.84 1.2 3.1 0 4.43-2.7 5.4-5.27 5.69.4.36.77 1.07.77 2.16v3.2c0 .3.2.66.79.55A11.5 11.5 0 0023.5 12C23.5 5.73 18.27.5 12 .5z"/>
+              </svg>
+              <span>getbeatly/beatly</span>
+            </a>
+          </section>
         </aside>
       </div>
-
-      <footer>
-        <a href={repos.website.href} target="_blank" rel="noopener">website repo</a>
-        <a href={repos.core.href} target="_blank" rel="noopener">core repo</a>
-        <span>© {new Date().getFullYear()} · {footer.note}</span>
-      </footer>
     </main>
 
     <script>
@@ -160,20 +165,6 @@ const title = `${brand.name} — ${brand.tagline}`;
       }
 
       a { color: inherit; text-decoration: none; }
-
-      .nav {
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        max-width: 1080px;
-        margin: 0 auto;
-        padding: 24px 28px;
-        position: relative;
-        z-index: 1;
-      }
-
-      .nav-link { color: var(--muted); font-size: 14px; }
-      .nav-link:hover { color: var(--fg); }
 
       main {
         max-width: 1080px;
@@ -339,26 +330,36 @@ const title = `${brand.name} — ${brand.tagline}`;
 
       .install pre { cursor: pointer; }
 
+      .repo-links {
+        display: grid;
+        gap: 10px;
+      }
+
+      .repo-link-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 13px 14px;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.03);
+        font-family: "Geist Mono Variable", "Geist Mono", ui-monospace, Menlo, monospace;
+        font-size: 14px;
+        color: var(--fg);
+        transition: border-color .15s, background .15s, transform .15s;
+      }
+
+      .repo-link-btn:hover {
+        border-color: rgba(255, 255, 255, 0.24);
+        background: rgba(255, 255, 255, 0.07);
+        transform: translateY(-1px);
+      }
+
       code {
         font-family: "Geist Mono Variable", "Geist Mono", ui-monospace, Menlo, monospace;
         font-size: clamp(14px, 1.45vw, 22px);
         font-weight: 560;
       }
-
-      footer {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 28px 0;
-        margin-top: 30px;
-        border-top: 1px solid var(--border);
-        color: var(--muted);
-        font-size: 13px;
-        gap: 12px;
-        flex-wrap: wrap;
-      }
-
-      footer a:hover { color: var(--accent); }
 
       @media (max-width: 980px) {
         .top-grid {
