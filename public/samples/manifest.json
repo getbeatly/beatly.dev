@@ -1,0 +1,125 @@
+{
+  "seconds": 60,
+  "seed": 1,
+  "tracks": [
+    {
+      "genre": "ambient",
+      "variant": "classic",
+      "profileId": "ambient.classic",
+      "bpm": 60,
+      "file": "ambient.mp3"
+    },
+    {
+      "genre": "calming",
+      "variant": "classic",
+      "profileId": "calming.classic",
+      "bpm": 70,
+      "file": "calming.mp3"
+    },
+    {
+      "genre": "deepFocus",
+      "variant": "dorian",
+      "profileId": "deepFocus.dorian",
+      "bpm": 86,
+      "file": "deepFocus.mp3"
+    },
+    {
+      "genre": "lofi",
+      "variant": "classic",
+      "profileId": "lofi.classic",
+      "bpm": 78,
+      "file": "lofi.mp3"
+    },
+    {
+      "genre": "jazzNoir",
+      "variant": "classic",
+      "profileId": "jazzNoir.classic",
+      "bpm": 96,
+      "file": "jazzNoir.mp3"
+    },
+    {
+      "genre": "techno",
+      "variant": "driving",
+      "profileId": "techno.driving",
+      "bpm": 128,
+      "file": "techno.mp3"
+    },
+    {
+      "genre": "dnb",
+      "variant": "classic",
+      "profileId": "dnb.classic",
+      "bpm": 174,
+      "file": "dnb.mp3"
+    },
+    {
+      "genre": "dub",
+      "variant": "classic",
+      "profileId": "dub.classic",
+      "bpm": 75,
+      "file": "dub.mp3"
+    },
+    {
+      "genre": "uplift",
+      "variant": "classic",
+      "profileId": "uplift.classic",
+      "bpm": 122,
+      "file": "uplift.mp3"
+    },
+    {
+      "genre": "neoSoul",
+      "variant": "classic",
+      "profileId": "neoSoul.classic",
+      "bpm": 84,
+      "file": "neoSoul.mp3"
+    },
+    {
+      "genre": "dreamPop",
+      "variant": "classic",
+      "profileId": "dreamPop.classic",
+      "bpm": 72,
+      "file": "dreamPop.mp3"
+    },
+    {
+      "genre": "soulHop",
+      "variant": "classic",
+      "profileId": "soulHop.classic",
+      "bpm": 88,
+      "file": "soulHop.mp3"
+    },
+    {
+      "genre": "cityPop",
+      "variant": "classic",
+      "profileId": "cityPop.classic",
+      "bpm": 110,
+      "file": "cityPop.mp3"
+    },
+    {
+      "genre": "bossaNova",
+      "variant": "classic",
+      "profileId": "bossaNova.classic",
+      "bpm": 94,
+      "file": "bossaNova.mp3"
+    },
+    {
+      "genre": "chillHouse",
+      "variant": "classic",
+      "profileId": "chillHouse.classic",
+      "bpm": 118,
+      "file": "chillHouse.mp3"
+    },
+    {
+      "genre": "rainyPiano",
+      "variant": "classic",
+      "profileId": "rainyPiano.classic",
+      "bpm": 68,
+      "file": "rainyPiano.mp3"
+    },
+    {
+      "genre": "sunsetGroove",
+      "variant": "classic",
+      "profileId": "sunsetGroove.classic",
+      "bpm": 102,
+      "file": "sunsetGroove.mp3"
+    }
+  ]
+}
