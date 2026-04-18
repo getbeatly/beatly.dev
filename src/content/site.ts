@@ -6,7 +6,7 @@ export const brand = {
   domain: "beatly.dev",
   tagline: "a live music soundtrack for coding agents",
   description:
-    "Beatly scores the work. A live, generative soundtrack that reacts to your coding agent in real time — tempo rising on long builds, a drop when tests pass, ambient pads while it thinks.",
+    "Procedurally generated music, scored live to what your coding agent is doing right now. No playlists, no loops — every tool call, diff, and test run shapes the score.",
 } as const;
 
 export const repos = {
@@ -52,21 +52,21 @@ export const hero = {
   eyebrow: "now composing",
   headline: "a live music soundtrack",
   headlineAccent: "for coding agents",
-  sub: "Beatly listens to your agent's tool calls, diffs, and test runs — and scores them. In real time. From a dusty lo-fi while it reads, to a build-up while it writes, to a payoff chord when CI goes green.",
+  sub: "Procedurally generated music, scored live to what your agent is doing right now. Tense strings while it debugs, a build-up as it writes, a payoff chord when CI goes green — no loops, no playlists, never the same twice.",
 } as const;
 
 export const features = [
   {
-    title: "Reacts to the loop",
-    body: "Tool call, file write, test pass, error. Each event is a cue. Beatly improvises around them.",
+    title: "Scored to your agent loop",
+    body: "Every tool call, file write, test pass and error is a musical cue. Beatly composes around the work actually happening — not a generic coding playlist.",
   },
   {
-    title: "Real music, real time",
-    body: "Generative stems running live in the browser. No pre-rendered loops, no dead air between prompts.",
+    title: "Procedurally generated, not pre-recorded",
+    body: "Notes, chords, and stems are synthesized live by SuperCollider. Nothing is a loop. The music you hear has never existed before and will never play the same way twice.",
   },
   {
-    title: "Your vibe, not ours",
-    body: "Pick a mood — lo-fi, synthwave, orchestral, drum & bass. Beatly keeps you in the zone you chose.",
+    title: "Your genre, your vibe",
+    body: "Pick a mood — lo-fi, synthwave, orchestral, drum & bass — and Beatly stays inside it while reacting to everything your agent does.",
   },
 ] as const;
 
