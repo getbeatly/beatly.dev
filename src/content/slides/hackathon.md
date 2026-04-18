@@ -72,6 +72,12 @@ Also shipping as a **Codex** marketplace plugin. One core, multiple integrations
 
 ## Live Demo
 
+---
+
+## Token stats
+
+- 1,242 responses across 26 sessions — ~48 turns/session
+- 1.9M real tokens / 73.7M total
 
 ---
 
