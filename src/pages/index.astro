@@ -172,7 +172,20 @@ const tracks = manifest.tracks.map((t) => ({
           fill.style.width = ((audio.currentTime / audio.duration) * 100).toFixed(2) + "%";
         });
 
-        load(0, false);
+        load(Math.floor(Math.random() * tracks.length), true);
+
+        // Browsers block autoplay without a gesture — start on first interaction.
+        const kick = () => {
+          if (audio.paused) audio.play().catch(() => {});
+          window.removeEventListener("pointerdown", kick);
+          window.removeEventListener("keydown", kick);
+          window.removeEventListener("scroll", kick);
+          window.removeEventListener("touchstart", kick);
+        };
+        window.addEventListener("pointerdown", kick, { once: false });
+        window.addEventListener("keydown", kick, { once: false });
+        window.addEventListener("scroll", kick, { once: false, passive: true });
+        window.addEventListener("touchstart", kick, { once: false, passive: true });
       })();
 
       document.querySelectorAll(".install pre").forEach((block) => {
