@@ -28,37 +28,41 @@ const title = `${brand.name} — ${brand.tagline}`;
   </head>
   <body>
     <header class="nav">
-      <a href="/" class="brand" aria-label={brand.name}>
-        <img src="/brand/svg/wordmark-dark.svg" alt={brand.name} class="lockup" />
-      </a>
       <a href={repos.website.href} class="nav-link" target="_blank" rel="noopener">github ↗</a>
     </header>
 
     <main>
-      <section class="hero">
-        <svg class="hero-mark" viewBox="0 0 24 24" role="img" aria-label={`${brand.name} logo`} xmlns="http://www.w3.org/2000/svg">
-          <rect x="3" y="8" width="4" height="8" fill="#FAFAFA"/>
-          <rect x="17" y="8" width="4" height="8" fill="#FAFAFA"/>
-          <rect class="hero-mark-center" x="10" y="5" width="4" height="14" fill="#FF2E88"/>
-        </svg>
+      <div class="top-grid">
+        <section class="hero">
+          <div class="hero-brand">
+            <svg class="hero-mark" viewBox="0 0 24 24" role="img" aria-label={`${brand.name} logo`} xmlns="http://www.w3.org/2000/svg">
+              <rect x="3" y="8" width="4" height="8" fill="#FAFAFA"/>
+              <rect x="17" y="8" width="4" height="8" fill="#FAFAFA"/>
+              <rect class="hero-mark-center" x="10" y="5" width="4" height="14" fill="#FF2E88"/>
+            </svg>
+            <span class="hero-name">beatly</span>
+          </div>
 
-        <p class="eyebrow">{hero.eyebrow}</p>
-        <h1>{hero.headline} <span>{hero.headlineAccent}</span></h1>
-        <p class="sub">{hero.sub}</p>
-      </section>
+          <p class="eyebrow">{hero.eyebrow}</p>
+          <h1>{hero.headline} <span>{hero.headlineAccent}</span></h1>
+          <p class="sub">{hero.sub}</p>
+        </section>
 
-      <section class="demo" aria-label="demo placeholder">
-        <h2>live browser demo</h2>
-        <div class="placeholder">Interactive demo placeholder. This area hosts real-time controls and agent-event triggers.</div>
-      </section>
+        <aside class="side">
+          <section class="demo" aria-label="demo placeholder">
+            <button class="demo-play" type="button" aria-label="Play demo">
+              <span class="demo-play-icon">▶</span>
+            </button>
+          </section>
 
-      <section class="install" aria-label="install">
-        <h2>install</h2>
-        <p class="muted">One-liner (npm):</p>
-        <pre><code>npm i @beatly/core</code></pre>
-        <p class="muted">One-liner (skill):</p>
-        <pre><code>npx @beatly/skill@latest install</code></pre>
-      </section>
+          <section class="install" aria-label="install">
+            <p class="muted">install library</p>
+            <pre><code>npm i @beatly/core</code></pre>
+            <p class="muted">install skill</p>
+            <pre><code>npx @beatly/skill install</code></pre>
+          </section>
+        </aside>
+      </div>
 
       <footer>
         <a href={repos.website.href} target="_blank" rel="noopener">website repo</a>
@@ -66,6 +70,23 @@ const title = `${brand.name} — ${brand.tagline}`;
         <span>© {new Date().getFullYear()} · {footer.note}</span>
       </footer>
     </main>
+
+    <script>
+      document.querySelectorAll(".install pre").forEach((block) => {
+        block.addEventListener("click", () => {
+          const code = block.querySelector("code");
+          if (!code) return;
+
+          const selection = window.getSelection();
+          if (!selection) return;
+
+          const range = document.createRange();
+          range.selectNodeContents(code);
+          selection.removeAllRanges();
+          selection.addRange(range);
+        });
+      });
+    </script>
 
     <style is:global>
       :root {
@@ -92,31 +113,52 @@ const title = `${brand.name} — ${brand.tagline}`;
 
       .nav {
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-end;
         align-items: center;
         max-width: 1080px;
         margin: 0 auto;
         padding: 24px 28px;
       }
 
-      .lockup { display: block; height: 28px; width: auto; }
       .nav-link { color: var(--muted); font-size: 14px; }
       .nav-link:hover { color: var(--fg); }
 
       main { max-width: 1080px; margin: 0 auto; padding: 0 28px 60px; }
 
+      .top-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.9fr);
+        gap: 36px;
+        align-items: start;
+        padding: 22px 0 10px;
+      }
+
       .hero {
         display: flex;
         flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+        padding: 10px 0 0;
+      }
+
+      .hero-brand {
+        display: inline-flex;
         align-items: center;
-        text-align: center;
-        padding: 28px 0 48px;
+        gap: 14px;
+        margin: 6px 0 16px;
       }
 
       .hero-mark {
-        width: clamp(150px, 20vw, 220px);
+        width: clamp(38px, 4.8vw, 56px);
         height: auto;
-        margin: 20px 0 28px;
+        margin: 0;
+      }
+
+      .hero-name {
+        font-size: clamp(38px, 4.8vw, 56px);
+        line-height: 1;
+        font-weight: 780;
+        letter-spacing: -0.03em;
       }
 
       .hero-mark-center {
@@ -140,12 +182,12 @@ const title = `${brand.name} — ${brand.tagline}`;
       }
 
       h1 {
-        margin: 0 0 16px;
-        font-size: clamp(44px, 7.8vw, 92px);
-        line-height: 0.96;
-        letter-spacing: -0.04em;
-        font-weight: 760;
-        max-width: 13ch;
+        margin: 0 0 14px;
+        font-size: clamp(38px, 6.4vw, 74px);
+        line-height: 0.98;
+        letter-spacing: -0.035em;
+        font-weight: 740;
+        max-width: 14ch;
         text-wrap: balance;
       }
 
@@ -153,39 +195,70 @@ const title = `${brand.name} — ${brand.tagline}`;
 
       .sub {
         margin: 0;
-        max-width: 52ch;
+        max-width: 54ch;
         color: var(--muted);
-        font-size: clamp(16px, 1.45vw, 21px);
-        line-height: 1.4;
+        font-size: clamp(15px, 1.25vw, 18px);
+        line-height: 1.45;
         font-weight: 500;
       }
 
-      .demo, .install {
-        border-top: 1px solid var(--border);
-        padding: 28px 0;
+      .side {
+        display: grid;
+        gap: 16px;
+        padding-top: 36px;
+      }
+
+      .demo,
+      .install {
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: var(--card);
+        padding: 20px;
       }
 
       .install {
         text-align: center;
-        padding: 52px 0;
+        padding: 26px 20px;
       }
 
-      h2 {
-        margin: 0 0 16px;
-        font-size: clamp(34px, 6vw, 64px);
-        letter-spacing: -0.035em;
-        line-height: 0.98;
-        font-weight: 760;
+      .install pre,
+      .install code {
+        text-align: center;
       }
 
-      .placeholder {
-        border: 1px dashed var(--border);
-        border-radius: 12px;
-        padding: 24px;
-        color: var(--muted);
-        background: var(--card);
-        font-size: clamp(17px, 1.7vw, 24px);
-        line-height: 1.35;
+      .install pre {
+        width: 100%;
+      }
+
+      .demo {
+        min-height: 180px;
+        display: grid;
+        place-items: center;
+      }
+
+      .demo-play {
+        width: 94px;
+        height: 94px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.03);
+        color: var(--fg);
+        cursor: pointer;
+        display: grid;
+        place-items: center;
+        transition: transform .15s, border-color .15s, background .15s;
+      }
+
+      .demo-play:hover {
+        transform: translateY(-1px);
+        border-color: rgba(255, 255, 255, 0.26);
+        background: rgba(255, 255, 255, 0.06);
+      }
+
+      .demo-play-icon {
+        font-size: 34px;
+        line-height: 1;
+        margin-left: 4px;
       }
 
       .muted {
@@ -205,6 +278,8 @@ const title = `${brand.name} — ${brand.tagline}`;
         width: fit-content;
         max-width: 100%;
       }
+
+      .install pre { cursor: pointer; }
 
       code {
         font-family: "Geist Mono Variable", "Geist Mono", ui-monospace, Menlo, monospace;
@@ -226,6 +301,21 @@ const title = `${brand.name} — ${brand.tagline}`;
       }
 
       footer a:hover { color: var(--accent); }
+
+      @media (max-width: 980px) {
+        .top-grid {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        .hero {
+          padding-top: 0;
+        }
+
+        .side {
+          padding-top: 0;
+        }
+      }
 
       @media (prefers-reduced-motion: reduce) {
         .hero-mark-center { animation: none; }
