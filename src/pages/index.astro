@@ -1,7 +1,7 @@
 ---
 import "@fontsource-variable/geist";
 import "@fontsource-variable/geist-mono";
-import { brand, hero, features, repos, footer } from "../content/site";
+import { brand, repos, footer } from "../content/site";
 
 const title = `${brand.name} — ${brand.tagline}`;
 ---
@@ -16,11 +16,11 @@ const title = `${brand.name} — ${brand.tagline}`;
     <meta property="og:description" content={brand.description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={`https://${brand.domain}`} />
+    <meta property="og:image" content={`https://${brand.domain}/og-image.png`} />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={`https://${brand.domain}/og-image.png`} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <meta property="og:image" content={`https://${brand.domain}/og-image.png`} />
-    <meta name="twitter:image" content={`https://${brand.domain}/og-image.png`} />
     <title>{title}</title>
     {import.meta.env.PROD && (
       <script defer data-domain="beatly.dev" src="https://track.magicmonad.com/js/script.js"></script>
@@ -32,78 +32,114 @@ const title = `${brand.name} — ${brand.tagline}`;
         <img src="/brand/svg/wordmark-dark.svg" alt={brand.name} class="lockup" />
       </a>
       <a href={repos.website.href} class="nav-link" aria-label="GitHub" target="_blank" rel="noopener">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M12 .5C5.73.5.5 5.73.5 12a11.5 11.5 0 007.86 10.92c.57.1.78-.25.78-.55v-1.93c-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.04-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.3 1.2-3.1-.12-.3-.52-1.48.1-3.1 0 0 .97-.31 3.18 1.18a11 11 0 015.8 0c2.2-1.5 3.17-1.18 3.17-1.18.63 1.62.23 2.8.12 3.1.74.8 1.2 1.84 1.2 3.1 0 4.43-2.7 5.4-5.27 5.69.4.36.77 1.07.77 2.16v3.2c0 .3.2.66.79.55A11.5 11.5 0 0023.5 12C23.5 5.73 18.27.5 12 .5z"/>
-        </svg>
+        github ↗
       </a>
     </header>
 
     <main>
-      <section class="hero">
-        <svg class="hero-mark" viewBox="0 0 24 24" role="img" aria-label={`${brand.name} logo`} xmlns="http://www.w3.org/2000/svg">
-          <rect x="3" y="8" width="4" height="8" fill="#FAFAFA"/>
-          <rect x="17" y="8" width="4" height="8" fill="#FAFAFA"/>
-          <rect class="hero-mark-center" x="10" y="5" width="4" height="14" fill="#FF2E88"/>
-        </svg>
-
-        <p class="eyebrow">{hero.eyebrow}</p>
-        <h1>
-          {hero.headline} <span class="accent">{hero.headlineAccent}</span>
-        </h1>
-        <p class="sub">{hero.sub}</p>
+      <section class="intro">
+        <p class="eyebrow">preview phase</p>
+        <h1>Beatly brings a live soundtrack to coding agents.</h1>
+        <p class="sub">
+          This homepage is intentionally minimal for now: a quick intro, a demo placeholder,
+          and practical setup instructions so you can wire Beatly into your local workflows today.
+        </p>
       </section>
 
-      <section class="features" aria-label="features">
-        <ul>
-          {features.map((f) => (
-            <li>
-              <h3>{f.title}</h3>
-              <p>{f.body}</p>
-            </li>
-          ))}
-        </ul>
+      <section class="demo-placeholder" aria-label="demo placeholder">
+        <h2>browser demo (placeholder)</h2>
+        <div class="placeholder-box">
+          <p>🎧 Interactive real-time demo coming soon.</p>
+          <p>Planned controls: start/stop, mood presets, intensity slider, and agent event triggers.</p>
+        </div>
       </section>
 
-      <section id="open-source" class="repos" aria-label="open source">
-        <h2>open source</h2>
-        <p class="repos-sub">Beatly is built in the open. Two repos, one project.</p>
-        <ul>
-          {Object.values(repos).map((r) => (
-            <li>
-              <a href={r.href} target="_blank" rel="noopener">
-                <div class="repo-head">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <path d="M12 .5C5.73.5.5 5.73.5 12a11.5 11.5 0 007.86 10.92c.57.1.78-.25.78-.55v-1.93c-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.04-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.3 1.2-3.1-.12-.3-.52-1.48.1-3.1 0 0 .97-.31 3.18 1.18a11 11 0 015.8 0c2.2-1.5 3.17-1.18 3.17-1.18.63 1.62.23 2.8.12 3.1.74.8 1.2 1.84 1.2 3.1 0 4.43-2.7 5.4-5.27 5.69.4.36.77 1.07.77 2.16v3.2c0 .3.2.66.79.55A11.5 11.5 0 0023.5 12C23.5 5.73 18.27.5 12 .5z"/>
-                  </svg>
-                  <span class="repo-name">getbeatly/{r.label}</span>
-                  <span class="repo-arrow">↗</span>
-                </div>
-                <p>{r.description}</p>
-              </a>
-            </li>
-          ))}
-        </ul>
+      <section class="install" aria-label="installation instructions">
+        <h2>install Beatly in your local coding agent</h2>
+        <p class="install-sub">
+          Prefer npm install. Then run a tiny local bridge script that translates your agent events into Beatly signals.
+        </p>
+
+        <article class="panel">
+          <h3>1) install from npm</h3>
+          <pre><code>npm i @beatly/core</code></pre>
+          <p class="note">
+            If you are testing before publish in your own workspace, use a local path temporarily:
+            <code>npm i ../beatly</code>.
+          </p>
+        </article>
+
+        <article class="panel">
+          <h3>2) create a tiny local bridge</h3>
+          <p>This bridge receives simple JSON events and forwards them to Beatly.</p>
+<pre><code>import &#123; BeatlyEngine &#125; from "@beatly/core";
+import &#123; ConsoleAdapter &#125; from "@beatly/core/adapters";
+import &#123; createBeatlySkill &#125; from "@beatly/core/skill";
+
+const engine = new BeatlyEngine(&#123; adapters: [new ConsoleAdapter()] &#125;);
+const skill = createBeatlySkill(engine);
+
+await skill.start(&#123; agentId: "local-agent" &#125;);
+await skill.handleEvent(&#123; type: "task.started" &#125;);
+await skill.handleEvent(&#123; type: "task.completed" &#125;);
+await skill.stop("done");</code></pre>
+        </article>
+
+        <article class="panel">
+          <h3>3) wire your favorite agent</h3>
+          <div class="agent-grid">
+            <div>
+              <h4>Claude Code</h4>
+              <p>
+                Use a small shell wrapper or hook script around your local Claude Code runs.
+                Emit events like <code>task.started</code>, <code>task.blocked</code>, and <code>task.completed</code>
+                to your Beatly bridge process.
+              </p>
+            </div>
+            <div>
+              <h4>Codex</h4>
+              <p>
+                Same pattern: wrap Codex CLI/tool execution, send lightweight lifecycle events,
+                and let Beatly derive mood/intensity from those signals.
+              </p>
+            </div>
+            <div>
+              <h4>Pi</h4>
+              <p>
+                Start with a sidecar event bridge today. Later, move to a native Pi integration skill/extension
+                once your Beatly package API is fully stabilized.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <h3>4) supported event types today</h3>
+          <pre><code>task.started
+task.blocked
+task.completed
+agent.idle</code></pre>
+          <p class="note">
+            These map to Beatly signals internally and drive real-time mood/intensity updates.
+          </p>
+        </article>
       </section>
 
       <footer>
-        <a href="/" class="foot-brand" aria-label={brand.name}>
-          <img src="/brand/svg/wordmark-dark.svg" alt={brand.name} height="20" />
-        </a>
-        <span class="foot-links">
-          <a href={repos.website.href} target="_blank" rel="noopener">github</a>
-          <span>© {new Date().getFullYear()} · {footer.note}</span>
-        </span>
+        <a href={repos.website.href} target="_blank" rel="noopener">website repo</a>
+        <a href={repos.core.href} target="_blank" rel="noopener">core repo</a>
+        <span>© {new Date().getFullYear()} · {footer.note}</span>
       </footer>
     </main>
 
     <style is:global>
       :root {
-        --bg: #0A0A0A;
-        --fg: #FAFAFA;
-        --muted: #8a8a8a;
-        --accent: #FF2E88;
-        --border: rgba(250, 250, 250, 0.08);
-        --card: rgba(250, 250, 250, 0.03);
+        --bg: #0a0a0a;
+        --fg: #fafafa;
+        --muted: #a0a0a0;
+        --accent: #ff2e88;
+        --border: rgba(250, 250, 250, 0.1);
+        --card: rgba(250, 250, 250, 0.04);
       }
       * { box-sizing: border-box; }
       html, body { margin: 0; padding: 0; }
@@ -111,155 +147,112 @@ const title = `${brand.name} — ${brand.tagline}`;
         background: var(--bg);
         color: var(--fg);
         font-family: "Geist Variable", "Geist", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-        font-feature-settings: "ss01", "cv11";
         line-height: 1.55;
-        -webkit-font-smoothing: antialiased;
       }
       a { color: inherit; text-decoration: none; }
 
-      /* ---------- brand mark ---------- */
-      .lockup { display: block; height: 28px; width: auto; }
-      @media (max-width: 480px) { .lockup { height: 24px; } }
-      .hero-mark {
-        width: clamp(180px, 28vw, 280px);
-        height: auto;
-        margin: 40px 0 56px;
-        display: block;
-      }
-      .hero-mark-center {
-        transform-origin: center;
-        animation: blink 1.1s steps(1, end) infinite;
-      }
-      @keyframes blink {
-        0%, 60% { opacity: 1; }
-        61%, 100% { opacity: 0.15; }
-      }
-      @media (prefers-reduced-motion: reduce) {
-        .hero-mark-center { animation: none; }
-      }
-
-      /* ---------- layout ---------- */
       .nav {
-        display: flex; justify-content: space-between; align-items: center;
-        max-width: 1080px; margin: 0 auto;
-        padding: 24px 28px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 24px 24px 10px;
       }
-      .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 600; letter-spacing: -0.01em; font-size: 18px; }
-      .wordmark { font-size: 17px; }
-      .nav-link {
-        display: inline-grid; place-items: center;
-        width: 34px; height: 34px; border-radius: 999px;
-        color: var(--muted);
-        transition: color .15s, background .15s;
-      }
-      .nav-link:hover { color: var(--fg); background: var(--card); }
+      .lockup { display: block; height: 28px; width: auto; }
+      .nav-link { color: var(--muted); font-size: 14px; }
+      .nav-link:hover { color: var(--accent); }
 
-      main { max-width: 1080px; margin: 0 auto; padding: 0 28px 60px; }
-
-      /* ---------- hero ---------- */
-      .hero {
-        display: flex; flex-direction: column; align-items: center;
-        text-align: center;
-        padding: 40px 0 100px;
+      main {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 0 24px 64px;
       }
+
+      .intro { padding: 42px 0 32px; text-align: center; }
       .eyebrow {
-        margin: 0 0 18px;
-        font-family: "Geist Mono Variable", "Geist Mono", ui-monospace, Menlo, monospace;
-        font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
-        color: var(--accent);
-      }
-      .hero h1 {
-        margin: 0 0 24px;
-        font-size: clamp(36px, 6vw, 64px);
-        line-height: 1.05; letter-spacing: -0.03em; font-weight: 600;
-        max-width: 16ch;
-      }
-      .hero h1 .accent { color: var(--accent); }
-      .sub {
-        margin: 0 0 36px;
-        max-width: 52ch;
-        color: var(--muted);
-        font-size: clamp(16px, 1.6vw, 18px);
-      }
-      /* ---------- features ---------- */
-      .features { padding: 40px 0 80px; border-top: 1px solid var(--border); }
-      .features ul {
-        list-style: none; padding: 0; margin: 0;
-        display: grid; gap: 1px;
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-        background: var(--border);
-        border: 1px solid var(--border);
-        border-radius: 12px;
-        overflow: hidden;
-      }
-      .features li {
-        background: var(--bg);
-        padding: 28px 24px;
-      }
-      .features h3 {
-        margin: 0 0 10px;
-        font-size: 15px; font-weight: 600; letter-spacing: -0.01em;
-      }
-      .features h3::before {
-        content: ""; display: inline-block;
-        width: 8px; height: 8px; border-radius: 2px;
-        background: var(--accent); margin-right: 10px;
-        vertical-align: 1px;
-      }
-      .features p { margin: 0; color: var(--muted); font-size: 14px; }
-
-      /* ---------- repos ---------- */
-      .repos {
-        padding: 80px 0 40px;
-        border-top: 1px solid var(--border);
-        text-align: center;
-      }
-      .repos h2 {
         margin: 0 0 12px;
-        font-size: clamp(24px, 3.5vw, 34px);
-        letter-spacing: -0.02em; font-weight: 600;
-      }
-      .repos-sub { margin: 0 auto 32px; color: var(--muted); max-width: 44ch; }
-      .repos ul {
-        list-style: none; padding: 0; margin: 0;
-        display: grid; gap: 12px;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        text-align: left;
-      }
-      .repos li a {
-        display: block;
-        padding: 20px 22px;
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: 12px;
-        transition: border-color .15s, transform .15s;
-      }
-      .repos li a:hover { border-color: var(--accent); transform: translateY(-2px); }
-      .repo-head {
-        display: flex; align-items: center; gap: 10px;
-        margin-bottom: 6px;
-      }
-      .repo-name {
+        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        font-size: 12px;
         font-family: "Geist Mono Variable", "Geist Mono", ui-monospace, Menlo, monospace;
-        font-size: 14px; font-weight: 500;
       }
-      .repo-arrow { margin-left: auto; color: var(--muted); font-size: 16px; }
-      .repos li p { margin: 0; color: var(--muted); font-size: 14px; }
+      h1 {
+        margin: 0 auto 16px;
+        max-width: 18ch;
+        font-size: clamp(34px, 6vw, 60px);
+        line-height: 1.05;
+        letter-spacing: -0.03em;
+      }
+      .sub { margin: 0 auto; max-width: 62ch; color: var(--muted); }
 
-      /* ---------- footer ---------- */
-      footer {
-        display: flex; justify-content: space-between; align-items: center;
-        padding: 28px 0; margin-top: 40px;
+      .demo-placeholder,
+      .install {
         border-top: 1px solid var(--border);
-        color: var(--muted); font-size: 13px;
-        flex-wrap: wrap; gap: 12px;
+        padding: 36px 0;
       }
-      .foot-brand { display: inline-flex; align-items: center; color: var(--fg); opacity: 0.85; transition: opacity .15s; }
-      .foot-brand:hover { opacity: 1; }
-      .foot-brand img { display: block; height: 18px; width: auto; }
-      .foot-links { display: inline-flex; align-items: center; gap: 16px; flex-wrap: wrap; }
-      .foot-links a { color: var(--muted); transition: color .15s; }
-      .foot-links a:hover { color: var(--accent); }
+
+      h2 {
+        margin: 0 0 10px;
+        font-size: clamp(24px, 3vw, 34px);
+        letter-spacing: -0.02em;
+      }
+
+      .placeholder-box {
+        border: 1px dashed var(--border);
+        border-radius: 14px;
+        padding: 22px;
+        background: var(--card);
+      }
+      .placeholder-box p { margin: 0 0 8px; color: var(--muted); }
+      .placeholder-box p:last-child { margin-bottom: 0; }
+
+      .install-sub { margin: 0 0 20px; color: var(--muted); max-width: 70ch; }
+
+      .panel {
+        margin: 0 0 14px;
+        border: 1px solid var(--border);
+        background: var(--card);
+        border-radius: 14px;
+        padding: 16px;
+      }
+      .panel h3 { margin: 0 0 8px; font-size: 18px; }
+      .panel h4 { margin: 0 0 6px; font-size: 15px; }
+      .panel p { margin: 0 0 8px; color: var(--muted); }
+
+      pre {
+        margin: 10px 0;
+        padding: 12px;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        background: rgba(0, 0, 0, 0.35);
+        overflow-x: auto;
+      }
+      code {
+        font-family: "Geist Mono Variable", "Geist Mono", ui-monospace, Menlo, monospace;
+        font-size: 13px;
+      }
+
+      .agent-grid {
+        display: grid;
+        gap: 12px;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      }
+
+      .note { color: var(--muted); font-size: 14px; }
+
+      footer {
+        border-top: 1px solid var(--border);
+        margin-top: 22px;
+        padding-top: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+      footer a:hover { color: var(--accent); }
     </style>
   </body>
 </html>
