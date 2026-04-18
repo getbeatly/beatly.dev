@@ -1,0 +1,276 @@
+---
+const title = "Beatly — Agentic AI Musical Coding Agent";
+const description =
+  "Beatly is an agentic AI that codes music. Describe a vibe, a groove, or a genre — Beatly writes, iterates, and ships sound.";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <div class="bg-orbs">
+      <span class="orb orb-1"></span>
+      <span class="orb orb-2"></span>
+      <span class="orb orb-3"></span>
+    </div>
+
+    <header class="nav">
+      <a href="/" class="brand">
+        <span class="logo">♪</span>
+        <span>beatly</span>
+      </a>
+      <nav>
+        <a href="#features">Features</a>
+        <a href="#how">How it works</a>
+        <a href="#waitlist" class="cta">Join waitlist</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <span class="badge">🎛️ agentic · musical · code-native</span>
+        <h1>
+          The AI agent that
+          <span class="gradient">codes music</span>
+          the way you think it.
+        </h1>
+        <p class="lede">
+          Beatly turns prompts into playable, programmable beats. It writes the code,
+          wires the synths, iterates on the groove, and commits the loop — all on its own.
+        </p>
+
+        <form class="waitlist" id="waitlist" onsubmit="event.preventDefault(); this.querySelector('button').innerText='\u2713 You\u2019re in.'">
+          <input type="email" placeholder="you@studio.fm" required />
+          <button type="submit">Get early access</button>
+        </form>
+
+        <div class="terminal" role="img" aria-label="Beatly agent terminal demo">
+          <div class="term-head">
+            <span></span><span></span><span></span>
+            <em>beatly · session</em>
+          </div>
+          <pre><code><span class="prompt">›</span> <span class="user">make me a lo-fi boom-bap loop at 86 bpm with a dusty rhodes</span>
+<span class="muted">[agent] planning…  tools: strudel, tone.js, sampler</span>
+<span class="muted">[agent] writing </span><span class="file">loops/dusty-rhodes.ts</span>
+<span class="muted">[agent] running preview · 4 bars · 86 bpm</span>
+<span class="ok">✓ loop compiled — 3 variations ready</span>
+<span class="prompt">›</span> <span class="user">swap the kick for something heavier, keep the swing</span>
+<span class="muted">[agent] diffing pattern… committing </span><span class="file">kit.json</span>
+<span class="ok">♪ now playing: dusty-rhodes@v2</span>
+</code></pre>
+        </div>
+      </section>
+
+      <section id="features" class="features">
+        <h2>A musician on the team. Who happens to be an agent.</h2>
+        <div class="grid">
+          <article>
+            <div class="icon">🧠</div>
+            <h3>Agentic by design</h3>
+            <p>Plans, edits, tests and re-tests. Beatly runs its own audio preview loop until the groove lands.</p>
+          </article>
+          <article>
+            <div class="icon">⌨️</div>
+            <h3>Code-native output</h3>
+            <p>Every beat is real code — Strudel, Tone.js, Sonic Pi, or your DAW's scripting API. Versioned, diffable, yours.</p>
+          </article>
+          <article>
+            <div class="icon">🎚️</div>
+            <h3>Iterate in plain English</h3>
+            <p>"Darker bass", "more shuffle", "half-time drop at bar 17". Beatly understands musical intent, not just notes.</p>
+          </article>
+          <article>
+            <div class="icon">🔌</div>
+            <h3>Tool-using</h3>
+            <p>Samples, MIDI, VSTs, stems, SoundFonts. Beatly picks the right instrument for the job and wires it up.</p>
+          </article>
+          <article>
+            <div class="icon">🌀</div>
+            <h3>Live-loopable</h3>
+            <p>Export to a live-coding environment and keep jamming. The agent stays in the loop — literally.</p>
+          </article>
+          <article>
+            <div class="icon">🪄</div>
+            <h3>Ship the song</h3>
+            <p>Render to WAV, publish a web player, or open a PR against your music repo. Beatly finishes the work.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="how" class="how">
+        <h2>How Beatly works</h2>
+        <ol>
+          <li><strong>Describe</strong> — tell Beatly the vibe, reference, or constraint.</li>
+          <li><strong>Delegate</strong> — the agent picks tools, writes code, previews audio.</li>
+          <li><strong>Direct</strong> — steer with feedback; Beatly diffs patterns and re-runs.</li>
+          <li><strong>Deliver</strong> — commit, export stems, or drop the loop into your set.</li>
+        </ol>
+      </section>
+
+      <footer>
+        <p>© {new Date().getFullYear()} Beatly · made with loops and tool calls.</p>
+      </footer>
+    </main>
+
+    <style is:global>
+      :root {
+        --bg: #07070b;
+        --fg: #eef0f6;
+        --muted: #8a8fa3;
+        --accent: #c084fc;
+        --accent-2: #22d3ee;
+        --accent-3: #f472b6;
+        --card: rgba(255, 255, 255, 0.04);
+        --border: rgba(255, 255, 255, 0.08);
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; padding: 0; }
+      body {
+        background: var(--bg);
+        color: var(--fg);
+        font-family: ui-sans-serif, system-ui, -apple-system, "Inter", "Segoe UI", sans-serif;
+        line-height: 1.6;
+        overflow-x: hidden;
+        position: relative;
+      }
+      a { color: inherit; text-decoration: none; }
+
+      .bg-orbs { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+      .orb { position: absolute; border-radius: 50%; filter: blur(100px); opacity: 0.35; }
+      .orb-1 { width: 520px; height: 520px; background: var(--accent); top: -120px; left: -140px; }
+      .orb-2 { width: 480px; height: 480px; background: var(--accent-2); top: 220px; right: -160px; }
+      .orb-3 { width: 400px; height: 400px; background: var(--accent-3); bottom: -140px; left: 30%; }
+
+      .nav {
+        display: flex; justify-content: space-between; align-items: center;
+        max-width: 1100px; margin: 0 auto; padding: 24px 28px;
+      }
+      .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 20px; letter-spacing: -0.01em; }
+      .brand .logo {
+        display: inline-grid; place-items: center;
+        width: 32px; height: 32px; border-radius: 10px;
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        color: #0b0b12; font-weight: 900;
+      }
+      .nav nav { display: flex; gap: 22px; align-items: center; color: var(--muted); font-size: 14px; }
+      .nav nav a:hover { color: var(--fg); }
+      .cta {
+        padding: 8px 14px; border-radius: 999px;
+        background: linear-gradient(135deg, var(--accent), var(--accent-3));
+        color: #0b0b12 !important; font-weight: 600;
+      }
+
+      main { max-width: 1100px; margin: 0 auto; padding: 0 28px 80px; }
+
+      .hero { padding: 60px 0 40px; }
+      .badge {
+        display: inline-block; padding: 6px 12px; border-radius: 999px;
+        background: var(--card); border: 1px solid var(--border);
+        color: var(--muted); font-size: 13px; margin-bottom: 24px;
+      }
+      .hero h1 {
+        font-size: clamp(40px, 6vw, 72px);
+        line-height: 1.05; letter-spacing: -0.03em; font-weight: 800;
+        margin: 0 0 20px;
+      }
+      .gradient {
+        background: linear-gradient(135deg, var(--accent), var(--accent-2), var(--accent-3));
+        -webkit-background-clip: text; background-clip: text; color: transparent;
+      }
+      .lede { font-size: 19px; color: var(--muted); max-width: 640px; margin: 0 0 32px; }
+
+      .waitlist { display: flex; gap: 10px; max-width: 460px; margin-bottom: 48px; flex-wrap: wrap; }
+      .waitlist input {
+        flex: 1 1 220px; padding: 14px 16px; border-radius: 12px;
+        border: 1px solid var(--border); background: var(--card); color: var(--fg);
+        font-size: 15px; outline: none;
+      }
+      .waitlist input:focus { border-color: var(--accent); }
+      .waitlist button {
+        padding: 14px 20px; border-radius: 12px; border: 0; cursor: pointer;
+        background: linear-gradient(135deg, var(--accent), var(--accent-3));
+        color: #0b0b12; font-weight: 700; font-size: 15px;
+      }
+      .waitlist button:hover { filter: brightness(1.1); }
+
+      .terminal {
+        border: 1px solid var(--border); border-radius: 16px; overflow: hidden;
+        background: rgba(10, 10, 16, 0.7); backdrop-filter: blur(12px);
+        box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+      }
+      .term-head {
+        display: flex; align-items: center; gap: 8px;
+        padding: 12px 16px; border-bottom: 1px solid var(--border);
+        background: rgba(255,255,255,0.02);
+      }
+      .term-head span { width: 12px; height: 12px; border-radius: 50%; background: #3a3a48; }
+      .term-head span:nth-child(1) { background: #ff5f57; }
+      .term-head span:nth-child(2) { background: #febc2e; }
+      .term-head span:nth-child(3) { background: #28c840; }
+      .term-head em { margin-left: auto; color: var(--muted); font-style: normal; font-size: 13px; }
+      .terminal pre {
+        margin: 0; padding: 20px 24px;
+        font-family: ui-monospace, "JetBrains Mono", Menlo, monospace;
+        font-size: 14px; line-height: 1.75; overflow-x: auto;
+      }
+      .prompt { color: var(--accent-2); }
+      .user { color: var(--fg); }
+      .muted { color: var(--muted); }
+      .file { color: var(--accent); }
+      .ok { color: #4ade80; }
+
+      .features { padding: 80px 0 40px; }
+      .features h2, .how h2 {
+        font-size: clamp(28px, 3.5vw, 40px);
+        letter-spacing: -0.02em; margin: 0 0 36px; max-width: 720px;
+      }
+      .grid {
+        display: grid; gap: 18px;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      }
+      .grid article {
+        padding: 24px; border-radius: 16px;
+        background: var(--card); border: 1px solid var(--border);
+        transition: transform .2s, border-color .2s;
+      }
+      .grid article:hover { transform: translateY(-2px); border-color: rgba(192,132,252,0.4); }
+      .grid .icon { font-size: 26px; margin-bottom: 10px; }
+      .grid h3 { margin: 0 0 8px; font-size: 18px; }
+      .grid p { margin: 0; color: var(--muted); font-size: 15px; }
+
+      .how { padding: 60px 0; }
+      .how ol {
+        display: grid; gap: 14px;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        list-style: none; padding: 0; counter-reset: step;
+      }
+      .how li {
+        counter-increment: step;
+        padding: 20px; border-radius: 14px;
+        background: var(--card); border: 1px solid var(--border);
+        color: var(--muted); font-size: 15px;
+      }
+      .how li::before {
+        content: counter(step);
+        display: inline-grid; place-items: center;
+        width: 28px; height: 28px; border-radius: 8px;
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        color: #0b0b12; font-weight: 800; font-size: 14px;
+        margin-bottom: 10px;
+      }
+      .how li strong { color: var(--fg); display: block; margin-bottom: 2px; }
+
+      footer {
+        margin-top: 80px; padding-top: 28px;
+        border-top: 1px solid var(--border);
+        color: var(--muted); font-size: 14px; text-align: center;
+      }
+    </style>
+  </body>
+</html>
