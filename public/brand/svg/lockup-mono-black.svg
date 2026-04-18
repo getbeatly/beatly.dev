@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 140" width="1040" height="280">
+  
+  <g transform="translate(20 22) scale(4)">
+    <rect x="3" y="8" width="4" height="8" fill="#0A0A0A"/>
+    <rect x="17" y="8" width="4" height="8" fill="#0A0A0A"/>
+    <rect x="10" y="5" width="4" height="14" fill="#0A0A0A"/>
+  </g>
+  <text x="144" y="96" font-family="Geist Mono, JetBrains Mono, ui-monospace, Menlo, monospace" font-weight="600" font-size="82" letter-spacing="-4" fill="#0A0A0A">beatly</text>
+  
+</svg>
