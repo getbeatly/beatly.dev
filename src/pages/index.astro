@@ -11,6 +11,9 @@ const description = "Beatly";
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
+    {import.meta.env.PROD && (
+      <script defer data-domain="beatly.dev" src="https://track.magicmonad.com/js/script.js"></script>
+    )}
   </head>
   <body>
     <main>
