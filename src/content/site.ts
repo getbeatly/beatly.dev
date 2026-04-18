@@ -38,8 +38,8 @@ export const installs = [
   {
     id: "claude",
     label: "Claude Code",
-    command: "npm run build:claude-code",
-    hint: "symlink into ~/.claude/skills/beatly",
+    command: "/plugin marketplace add getbeatly/claude-code",
+    hint: "then /plugin install beatly@beatly",
   },
 ] as const;
 
