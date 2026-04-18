@@ -32,8 +32,8 @@ export const installs = [
   {
     id: "codex",
     label: "Codex",
-    command: "npm run build:codex-plugin",
-    hint: "load from .build/distributions/codex/beatly",
+    command: "codex plugins marketplace add github:getbeatly/codex",
+    hint: "then codex plugins install beatly",
   },
   {
     id: "claude",
