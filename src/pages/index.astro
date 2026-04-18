@@ -102,11 +102,61 @@ const title = `${brand.name} — ${brand.tagline}`;
       html, body { margin: 0; padding: 0; }
 
       body {
-        background: var(--bg);
+        background:
+          radial-gradient(1200px 760px at 6% -10%, rgba(255, 46, 136, 0.30), transparent 58%),
+          radial-gradient(980px 680px at 100% 4%, rgba(108, 92, 255, 0.24), transparent 60%),
+          radial-gradient(1100px 740px at 74% 100%, rgba(0, 206, 255, 0.18), transparent 62%),
+          linear-gradient(160deg, #07070a 0%, #0c0c16 45%, #09090d 100%);
         color: var(--fg);
         font-family: "Geist Variable", "Geist", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
         line-height: 1.55;
         -webkit-font-smoothing: antialiased;
+        min-height: 100vh;
+        position: relative;
+        overflow-x: hidden;
+      }
+
+      body::before,
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+      }
+
+      body::before {
+        background:
+          radial-gradient(2px 2px at 8% 14%, rgba(255, 255, 255, 0.46), transparent 74%),
+          radial-gradient(1.5px 1.5px at 16% 58%, rgba(255, 255, 255, 0.34), transparent 72%),
+          radial-gradient(1px 1px at 24% 76%, rgba(255, 255, 255, 0.28), transparent 70%),
+          radial-gradient(2px 2px at 33% 30%, rgba(255, 255, 255, 0.42), transparent 74%),
+          radial-gradient(1.5px 1.5px at 44% 84%, rgba(255, 255, 255, 0.30), transparent 72%),
+          radial-gradient(2px 2px at 58% 10%, rgba(255, 255, 255, 0.44), transparent 74%),
+          radial-gradient(1.5px 1.5px at 66% 52%, rgba(255, 255, 255, 0.32), transparent 72%),
+          radial-gradient(2px 2px at 76% 24%, rgba(255, 255, 255, 0.42), transparent 74%),
+          radial-gradient(1px 1px at 82% 68%, rgba(255, 255, 255, 0.30), transparent 70%),
+          radial-gradient(2px 2px at 90% 38%, rgba(255, 255, 255, 0.46), transparent 74%),
+          radial-gradient(1.5px 1.5px at 94% 80%, rgba(255, 255, 255, 0.34), transparent 72%);
+        opacity: 1;
+        animation: sparkleTwinkle 5.2s ease-in-out infinite alternate;
+        z-index: 0;
+      }
+
+      body::after {
+        background:
+          radial-gradient(circle at 20% 20%, rgba(255, 46, 136, 0.16), transparent 40%),
+          radial-gradient(circle at 78% 68%, rgba(0, 206, 255, 0.16), transparent 42%),
+          radial-gradient(circle at 58% 36%, rgba(130, 108, 255, 0.14), transparent 38%);
+        mix-blend-mode: screen;
+        opacity: 1;
+        filter: blur(28px);
+        z-index: 0;
+      }
+
+      @keyframes sparkleTwinkle {
+        0% { opacity: 0.68; transform: translateY(0px) scale(1); }
+        50% { opacity: 1; transform: translateY(-3px) scale(1.02); }
+        100% { opacity: 0.72; transform: translateY(2px) scale(0.99); }
       }
 
       a { color: inherit; text-decoration: none; }
@@ -118,12 +168,20 @@ const title = `${brand.name} — ${brand.tagline}`;
         max-width: 1080px;
         margin: 0 auto;
         padding: 24px 28px;
+        position: relative;
+        z-index: 1;
       }
 
       .nav-link { color: var(--muted); font-size: 14px; }
       .nav-link:hover { color: var(--fg); }
 
-      main { max-width: 1080px; margin: 0 auto; padding: 0 28px 60px; }
+      main {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 0 28px 60px;
+        position: relative;
+        z-index: 1;
+      }
 
       .top-grid {
         display: grid;
@@ -319,6 +377,7 @@ const title = `${brand.name} — ${brand.tagline}`;
 
       @media (prefers-reduced-motion: reduce) {
         .hero-mark-center { animation: none; }
+        body::before { animation: none; }
       }
     </style>
   </body>
