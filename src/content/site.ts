@@ -9,6 +9,19 @@ export const brand = {
     "Beatly scores the work. A live, generative soundtrack that reacts to your coding agent in real time — tempo rising on long builds, a drop when tests pass, ambient pads while it thinks.",
 } as const;
 
+export const repos = {
+  website: {
+    label: "beatly.dev",
+    href: "https://github.com/getbeatly/beatly.dev",
+    description: "This website. Astro, deployed on Cloudflare.",
+  },
+  core: {
+    label: "beatly",
+    href: "https://github.com/getbeatly/beatly",
+    description: "Core library and agent skills. Coming soon.",
+  },
+} as const;
+
 export const hero = {
   eyebrow: "now composing",
   headline: "a live music soundtrack",
@@ -44,5 +57,5 @@ export const waitlist = {
 } as const;
 
 export const footer = {
-  note: "made with loops and tool calls.",
+  note: "open source · made with loops and tool calls.",
 } as const;

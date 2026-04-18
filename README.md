@@ -1,43 +1,66 @@
-# Astro Starter Kit: Minimal
+# beatly.dev
 
-```sh
-npm create astro@latest -- --template minimal
-```
+The website for **Beatly** — a live music soundtrack for coding agents.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Live at **[beatly.dev](https://beatly.dev)**.
 
-## 🚀 Project Structure
+## What is Beatly?
 
-Inside of your Astro project, you'll see the following folders and files:
+Beatly scores the work. A live, generative soundtrack that reacts to your coding agent in real time — tempo rising on long builds, a drop when tests pass, ambient pads while it thinks.
+
+## Repositories
+
+Beatly is open source and split across two repos:
+
+| Repo | What's in it |
+| :--- | :--- |
+| **[getbeatly/beatly.dev](https://github.com/getbeatly/beatly.dev)** | This website. Astro + Cloudflare. |
+| **[getbeatly/beatly](https://github.com/getbeatly/beatly)** | Core library and agent skills. _(coming soon — not yet ready.)_ |
+
+## Stack
+
+- **[Astro](https://astro.build)** — static site generator
+- **[Cloudflare Workers](https://developers.cloudflare.com/workers/)** (Static Assets) — hosting + custom domains
+- **[Wrangler](https://developers.cloudflare.com/workers/wrangler/)** — deploy tooling
+- **Geist** / **Geist Mono** — typefaces
+- Single source of marketing copy in [`src/content/site.ts`](src/content/site.ts)
+
+## Project structure
 
 ```text
 /
-├── public/
+├── public/                   # static assets served as-is
 ├── src/
-│   └── pages/
-│       └── index.astro
+│   ├── content/site.ts       # brand, hero, features, repos, waitlist copy
+│   └── pages/index.astro     # the landing page
+├── astro.config.mjs
+├── wrangler.jsonc            # Cloudflare Workers + custom domain routes
 └── package.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Commands
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+| Command | Action |
+| :--- | :--- |
+| `npm install` | Install dependencies |
+| `npm run dev` | Local dev server at `http://localhost:4321` |
+| `npm run build` | Build to `./dist/` |
+| `npm run preview` | Preview the built site locally |
+| `npm run cf:dev` | Build + run `wrangler dev` (simulates Workers runtime) |
+| `npm run deploy` | Build + deploy to Cloudflare Workers |
 
-Any static assets, like images, can be placed in the `public/` directory.
+## Deploying
 
-## 🧞 Commands
+1. One-time: `npx wrangler login`
+2. Ensure `beatly.dev` is a zone on your Cloudflare account.
+3. `npm run deploy`
 
-All commands are run from the root of the project, from a terminal:
+Custom domains `beatly.dev` and `www.beatly.dev` are provisioned automatically via the `routes` block in [`wrangler.jsonc`](wrangler.jsonc).
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## Editing copy
 
-## 👀 Want to learn more?
+All marketing content lives in [`src/content/site.ts`](src/content/site.ts). Change it there, run `npm run dev`, and the whole page updates.
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## License
+
+See the repo for license details.
